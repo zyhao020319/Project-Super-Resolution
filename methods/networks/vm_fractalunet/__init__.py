@@ -1,0 +1,1 @@
+from methods.networks.vm_fractalunet.networks import VxmDenseFractalUnet
