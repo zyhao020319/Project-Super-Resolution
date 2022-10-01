@@ -12,7 +12,7 @@ from materials.utils import slice_collater, volume_collater
 
 
 class LitBraTs2018Datamodule(pl.LightningDataModule):
-    def __init__(self, sr_scale, batch_size, num_workers=4):
+    def __init__(self, sr_scale, batch_size, num_workers):  # 删除了num_workers = 4的初始化
         super().__init__()
         
         self.sr_scale    = sr_scale
