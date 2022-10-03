@@ -5,7 +5,7 @@ def test_BraTs2018_datamodule():
     from experiments.base_configs.materials.lit_BraTs2018_datamodule import config  # 导入训练参数（超分辨率，批次大小，线程数）
     from materials.lit_BraTs2018_datamodule import LitBraTs2018Datamodule
     
-    brats2018_datamodule = LitBraTs2018Datamodule(**config)
+    brats2018_datamodule = LitBraTs2018Datamodule(**config)  # 加载数据集
     brats2018_datamodule.setup()
     
     train_dataloader = brats2018_datamodule.train_dataloader()

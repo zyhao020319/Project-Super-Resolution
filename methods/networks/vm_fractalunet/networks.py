@@ -66,6 +66,8 @@ class FractalUnet(nn.Module):
 class VxmDenseFractalUnet(nn.Module):
     """
     VoxelMorph network for (unsupervised) nonlinear registration between two images.
+
+    VoxelMorph网络用于(无监督的)两幅图像之间的非线性配准。
     """
     def __init__(self,
                  inshape,
@@ -83,25 +85,49 @@ class VxmDenseFractalUnet(nn.Module):
         """ 
         Parameters:
             inshape: Input shape. e.g. (192, 192, 192)
+                    输入的形状。例:(192,192,192)
+
             nb_unet_features: Unet convolutional features. Can be specified via a list of lists with
                 the form [[encoder feats], [decoder feats]], or as a single integer. 
                 If None (default), the unet features are defined by the default config described in 
                 the unet class documentation.
-            nb_unet_levels: Number of levels in unet. Only used when nb_features is an integer. 
+                    Unet卷积特性。可以通过形式为[[encoder feat]， [decoder feat]]的列表来指定，也可以作为
+                    单个整数。如果为None (default)，则unet特性由unet类文档中描述的默认配置定义。
+
+            nb_unet_levels: Number of levels in unet. Only used when nb_features is an integer.
                 Default is None.
+                    unet中的层数。仅在nb_features为整数时使用。默认是没有的。
+
             unet_feat_mult: Per-level feature multiplier. Only used when nb_features is an integer. 
                 Default is 1.
+                    特征乘数。仅在nb_features为整数时使用。默认值为1。
+
             nb_unet_conv_per_level: Number of convolutions per unet level. Default is 1.
+                    每个unet级的卷积数。默认值为1。
+
             int_steps: Number of flow integration steps. The warp is non-diffeomorphic when this 
                 value is 0.
+                    步骤的数量。当该值为0时，是非微分的。
+
             int_downsize: Integer specifying the flow downsample factor for vector integration. 
                 The flow field is not downsampled when this value is 1.
+                    指定用于向量积分的流下采样因子的整数。当该值为1时，流场不进行下采样。
+
             bidir: Enable bidirectional cost function. Default is False.
+                    开启双向成本功能。默认是假。
+
             use_probs: Use probabilities in flow field. Default is False.
+                    在流场中使用概率。默认是假。
+
             src_feats: Number of source image features. Default is 1.
+                    源图像特征的数量。默认值为1。
+
             trg_feats: Number of target image features. Default is 1.
+                    目标图像特征的数量。默认值为1。
+
             unet_half_res: Skip the last unet decoder upsampling. Requires that int_downsize=2. 
                 Default is False.
+                    跳过最后一个unet解码器上采样。要求int_downsize = 2。默认是假。
         """
         super(VxmDenseFractalUnet, self).__init__()
 
