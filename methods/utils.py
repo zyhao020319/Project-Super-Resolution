@@ -3,6 +3,7 @@ import inspect
 import torch
 import torch.nn.functional as F
 
+
 def initialize_class(class_name: object, class_params: dict):
     class_args = inspect.getargspec(class_name.__init__).args[1:]
     inkeys = class_params.keys()
