@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/Inter-slice-Super-resolution-056d965c468d62d68d8e71c0aabbd803751a5b5d.iml" filepath="$PROJECT_DIR$/.idea/Inter-slice-Super-resolution-056d965c468d62d68d8e71c0aabbd803751a5b5d.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/Project-Super-Resolution.iml" filepath="$PROJECT_DIR$/.idea/Project-Super-Resolution.iml" />
+>>>>>>> origin/main
     </modules>
   </component>
 </project>

@@ -76,6 +76,7 @@ pip install scikit-image -i https://pypi.tuna.tsinghua.edu.cn/simple/
 
 ```
 pip install torchio -i https://pypi.tuna.tsinghua.edu.cn/simple/
+<<<<<<< HEAD
 ```
 
 ### 12. Install torchsummary
@@ -88,4 +89,6 @@ pip install torch-summary -i https://pypi.tuna.tsinghua.edu.cn/simple/
 
 ```
 pip install monai -i https://pypi.tuna.tsinghua.edu.cn/simple/
+=======
+>>>>>>> origin/main
 ```
