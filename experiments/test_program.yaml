@@ -1,0 +1,30 @@
+tensorboard:
+  save_dir: "results/training/test_program/tensorboard/"
+  exp_name: "BraTs2018-ISSRGAN"
+
+dataset:
+  batch_size: 8
+  num_workers: 4
+  modality: "t1"
+
+model:
+  generator:
+    in_channels: 1
+    sr_scale: 4
+  discriminator:
+    in_channels: 1
+
+optimizer:
+  lr: 0.001
+  b1: 0.5
+  b2: 0.99
+  ratio: 0.01
+
+loss:
+  l1_loss_weight: 10
+  num_sample_slices: 64
+  dis_out_shape: [1, 8, 8]
+
+trainer:
+  max_epochs: 1000
+  gpus: 1
