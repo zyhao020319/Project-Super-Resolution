@@ -70,4 +70,5 @@ def test_voxelmorph():
 
 
 if __name__ == "__main__":
-    test_lit_BraTs2018_slice_loader()
+    # test_lit_BraTs2018_slice_loader()
+    test_UNet()

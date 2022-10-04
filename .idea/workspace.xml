@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8933ebd1-e868-4954-9bec-e537c2f72ee4" name="变更" comment="" />
+    <list default="true" id="8933ebd1-e868-4954-9bec-e537c2f72ee4" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug.py" beforeDir="false" afterPath="$PROJECT_DIR$/debug.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiments/dataset_configs/brats2018slice_configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/dataset_configs/brats2018slice_configs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials/datasets/BraTs2018_slice.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/datasets/BraTs2018_slice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials/datasets/BraTs2018_slice_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/datasets/BraTs2018_slice_new.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials/datasets/BraTs2018_volume.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/datasets/BraTs2018_volume.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials/lit_BraTs2018_slice_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/lit_BraTs2018_slice_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/methods/networks/nets/unet.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/networks/nets/unet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -21,9 +38,45 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "true",
-    "last_opened_file_path": "E:/Desktop/Project_Superresolution/Inter-slice-Super-resolution-056d965c468d62d68d8e71c0aabbd803751a5b5d"
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "last_opened_file_path": "E:/Desktop/Project_Superresolution/Inter-slice-Super-resolution-master/debug.py",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "two.files.diff.last.used.file": "E:/Desktop/Project_Superresolution/Project-Super-Resolution/materials/lit_BraTs2018_datamodule.py"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="debug" type="PythonConfigurationType" factoryName="Python">
+      <module name="Inter-slice-Super-resolution-056d965c468d62d68d8e71c0aabbd803751a5b5d" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="G:\anaconda3\envs\SR\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/debug.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -33,10 +86,38 @@
       <option name="presentableId" value="Default" />
       <updated>1664866580338</updated>
       <workItem from="1664866581607" duration="42000" />
+      <workItem from="1664867974663" duration="28000" />
+      <workItem from="1664868164183" duration="500000" />
+      <workItem from="1664868942339" duration="15205000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$debug.coverage" NAME="debug 覆盖结果" MODIFIED="1664881350483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

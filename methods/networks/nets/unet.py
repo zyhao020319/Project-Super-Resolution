@@ -7,17 +7,20 @@ import torch.nn.functional as F
 class DoubleConv(nn.Module):
     """(convolution => [BN] => ReLU) * 2"""
     kernel_size = (3, 3)
+
     def __init__(self, in_channels, out_channels, mid_channels=None):
         super(DoubleConv, self).__init__()
         kernel_height, kernel_width = self.kernel_size
         height_padding, width_padding = kernel_height // 2, kernel_width // 2
-        
+
         if not mid_channels:
             mid_channels = out_channels
         self.double_conv = nn.Sequential(
             nn.ReflectionPad2d(padding=(width_padding, width_padding, height_padding, height_padding)),
+            # 反射法padding填充
             nn.Conv2d(in_channels, mid_channels, kernel_size=(kernel_height, kernel_width)),
             nn.InstanceNorm2d(mid_channels),
+            # 实例归一化
             nn.ReLU(inplace=True),
             nn.ReflectionPad2d(padding=(width_padding, width_padding, height_padding, height_padding)),
             nn.Conv2d(mid_channels, out_channels, kernel_size=(kernel_height, kernel_width)),
@@ -32,13 +35,17 @@ class DoubleConv(nn.Module):
         for m in self.double_conv.modules():
             if isinstance(m, nn.Conv2d):
                 nn.init.kaiming_uniform_(m.weight, mode="fan_in")
+                # 对卷积层进行凯明初始化
 
     def forward(self, x):
         return self.relu(self.conv1x1(x) + self.double_conv(x))
 
 
 class Down(nn.Module):
-    """Downscaling with maxpool then double conv"""
+    """
+    Downscaling with maxpool then double conv
+    使用maxpooling和double conv进行两倍下采样
+    """
 
     def __init__(self, in_channels, out_channels):
         super(Down, self).__init__()
@@ -52,12 +59,15 @@ class Down(nn.Module):
 
 
 class Up(nn.Module):
-    """Upscaling then double conv"""
+    """
+    Upscaling then double conv
+    使用double conv进行两倍上采样
+    """
 
     def __init__(self, in_channels, out_channels, bilinear=True):
         super(Up, self).__init__()
-
         # if bilinear, use the normal convolutions to reduce the number of channels
+        # 如果使用双线性，则使用正常卷积来减少通道的数量，否则则使用反卷积
         if bilinear:
             self.up = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
             self.conv = DoubleConv(in_channels, out_channels, in_channels // 2)
@@ -91,7 +101,14 @@ class OutConv(nn.Module):
 
 
 class UNet(nn.Module):
-    def __init__(self, in_channels, out_channels, conv_kernel_size, ngf, nlayers, bilinear):
+    def __init__(self,
+                 in_channels,  # 输入通道
+                 out_channels,  # 输出通道
+                 conv_kernel_size,  # 卷积核size
+                 ngf,  # 生成器的卷积核个数
+                 nlayers,  # 层数
+                 bilinear  # 双线性
+                 ):
         super(UNet, self).__init__()
         self.n_channels = in_channels
         self.n_classes = out_channels
@@ -103,28 +120,28 @@ class UNet(nn.Module):
         factor = 2 if bilinear else 1
         for i in range(nlayers):
             if i != (nlayers - 1):
-                self.downs.append(Down(ngf * 2**i, ngf * 2**(i + 1)))
+                self.downs.append(Down(ngf * 2 ** i, ngf * 2 ** (i + 1)))
             else:
-                self.downs.append(Down(ngf * 2**i, ngf * 2**(i + 1) // factor))
+                self.downs.append(Down(ngf * 2 ** i, ngf * 2 ** (i + 1) // factor))
         self.ups = nn.ModuleList(modules=[])
         for i in np.arange(nlayers - 1, -1, -1):
             if i != 0:
-                self.ups.append(Up(ngf * 2**(i + 1), ngf * 2**i // factor, bilinear))
+                self.ups.append(Up(ngf * 2 ** (i + 1), ngf * 2 ** i // factor, bilinear))
             else:
-                self.ups.append(Up(ngf * 2**(i + 1), ngf * 2**i, bilinear))
+                self.ups.append(Up(ngf * 2 ** (i + 1), ngf * 2 ** i, bilinear))
         self.outc = OutConv(ngf, out_channels)
 
     def forward(self, x):
         x = self.inc(x)
-        
+
         downs = [x]
         for down in self.downs:
             x = down(x)
             downs.append(x)
-        
+
         for down_out, up in zip(reversed(downs[:-1]), self.ups):
             x = up(x, down_out)
-        
+
         logits = self.outc(x)
-        
+
         return logits
