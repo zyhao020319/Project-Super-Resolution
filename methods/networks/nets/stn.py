@@ -7,11 +7,16 @@ class SpatialTransformationNetwork(nn.Module):
     def __init__(self, size):
         super(SpatialTransformationNetwork, self).__init__()
         vectors = [torch.arange(0, s) for s in size]
-        grids = torch.meshgrid(vectors)
-        grid = torch.stack(grids)
-        grid = torch.unsqueeze(grid, 0)
+        grids = torch.meshgrid(vectors)  # 生成两个0-223坐标点矩阵
+        grid = torch.stack(grids)  # 拼接这两个矩阵
+        grid = torch.unsqueeze(grid, 0)  # 在dim=0维度升维变成四维
         grid = grid.type(torch.FloatTensor)
         self.register_buffer("grid", grid)
+        '''
+        self.register_buffer可以将tensor注册成buffer,在forward中使用self.mybuffer,而不是self.mybuffer_tmp
+        网络存储时也会将buffer存下，当网络load模型时，会将存储的模型的buffer也进行赋值。
+        buffer的更新在forward中，optim.step只能更新nn.parameter类型的参数。
+        '''
 
     def forward(self, src, flow):
         new_locs = self.grid + flow
