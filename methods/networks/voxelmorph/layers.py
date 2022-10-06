@@ -15,11 +15,7 @@ class SpatialTransformer(nn.Module):
 
         # create sampling grid
         vectors = [torch.arange(0, s) for s in size]
-<<<<<<< HEAD
         grids = torch.meshgrid(vectors)
-=======
-        grids = torch.meshgrid(vectors, indexing="ij")
->>>>>>> origin/main
         grid = torch.stack(grids)
         grid = torch.unsqueeze(grid, 0)
         grid = grid.type(torch.FloatTensor)

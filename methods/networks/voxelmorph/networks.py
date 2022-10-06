@@ -1,18 +1,12 @@
 import numpy as np
 import torch
 import torch.nn as nn
-<<<<<<< HEAD
 import torch.nn.functional as F
 from torch.distributions.normal import Normal
 
 from methods.networks.voxelmorph.utils import default_unet_features
 from methods.networks.voxelmorph import layers
 from methods.networks.voxelmorph.modelio import LoadableModel, store_config_args
-=======
-from torch.distributions.normal import Normal
-
-from methods.networks.voxelmorph import layers
->>>>>>> origin/main
 
 
 class Unet(nn.Module):
@@ -20,17 +14,11 @@ class Unet(nn.Module):
     A unet architecture. Layer features can be specified directly as a list of encoder and decoder
     features or as a single integer along with a number of unet levels. The default network features
     per layer (when no options are specified) are:
-<<<<<<< HEAD
 
         encoder: [16, 32, 32, 32]
         decoder: [32, 32, 32, 32, 32, 16, 16]
     """
 
-=======
-        encoder: [16, 32, 32, 32]
-        decoder: [32, 32, 32, 32, 32, 16, 16]
-    """
->>>>>>> origin/main
     def __init__(self,
                  inshape=None,
                  infeats=None,
@@ -55,10 +43,6 @@ class Unet(nn.Module):
             nb_conv_per_level: Number of convolutions per unet level. Default is 1.
             half_res: Skip the last decoder upsampling. Default is False.
         """
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/main
         super().__init__()
 
         # ensure correct dimensionality
@@ -68,13 +52,10 @@ class Unet(nn.Module):
         # cache some parameters
         self.half_res = half_res
 
-<<<<<<< HEAD
         # default encoder and decoder layer features if nothing provided
         if nb_features is None:
             nb_features = default_unet_features()
 
-=======
->>>>>>> origin/main
         # build feature list automatically
         if isinstance(nb_features, int):
             if nb_levels is None:
@@ -162,19 +143,12 @@ class Unet(nn.Module):
         return x
 
 
-<<<<<<< HEAD
 class VxmDense(LoadableModel):
     """
     VoxelMorph network for (unsupervised) nonlinear registration between two images.
     """
 
     @store_config_args
-=======
-class VxmDense(nn.Module):
-    """
-    VoxelMorph network for (unsupervised) nonlinear registration between two images.
-    """
->>>>>>> origin/main
     def __init__(self,
                  inshape,
                  nb_unet_features=None,
@@ -211,11 +185,7 @@ class VxmDense(nn.Module):
             unet_half_res: Skip the last unet decoder upsampling. Requires that int_downsize=2. 
                 Default is False.
         """
-<<<<<<< HEAD
         super().__init__()
-=======
-        super(VxmDense, self).__init__()
->>>>>>> origin/main
 
         # internal flag indicating whether to return flow or integrated warp during inference
         self.training = True
