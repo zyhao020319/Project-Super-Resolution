@@ -71,16 +71,7 @@ def test_voxelmorph():
 
 if __name__ == "__main__":
     test_lit_BraTs2018_slice_loader()
-    print()
-    
     test_UNet()
-    print()
-    
     test_slice_interpolation_net()
-    print()
-    
     test_voxelmorph_unet()
-    print()
-    
     test_voxelmorph()
-    print()

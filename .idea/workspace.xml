@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8933ebd1-e868-4954-9bec-e537c2f72ee4" name="变更" comment="源代码更新，数据集部分修改完毕">
+      <change afterPath="$PROJECT_DIR$/.idea/Inter-slice-Super-resolution-master.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug.py" beforeDir="false" afterPath="$PROJECT_DIR$/debug.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials/datasets/BraTs2018_slice.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/datasets/BraTs2018_slice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials/datasets/BraTs2018_volume.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/datasets/BraTs2018_volume.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials/litissrloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/litissrloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/methods/networks/nets/stn.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/networks/nets/stn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/methods/networks/nets/unet.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/networks/nets/unet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/methods/networks/slice_interpolation_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/networks/slice_interpolation_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/methods/networks/voxelmorph/networks.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/networks/voxelmorph/networks.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,12 +25,46 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2FexvOiyjqz5FkZTIi7bMTvyr0p" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,6 +74,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "true",
     "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
     "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
@@ -40,7 +87,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "yiiguxing.plugin.translate",
     "two.files.diff.last.used.file": "E:/Desktop/Project_Superresolution/Project-Super-Resolution/materials/lit_BraTs2018_datamodule.py"
   }
 }]]></component>
@@ -80,6 +127,9 @@
       <workItem from="1664867974663" duration="28000" />
       <workItem from="1664868164183" duration="500000" />
       <workItem from="1664868942339" duration="16189000" />
+      <workItem from="1665129508757" duration="2698000" />
+      <workItem from="1665133591704" duration="1316000" />
+      <workItem from="1665140298704" duration="8657000" />
     </task>
     <task id="LOCAL-00001" summary="源代码更新，数据集部分修改完毕">
       <created>1664890330935</created>
@@ -117,7 +167,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -128,6 +190,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="源代码更新，数据集部分修改完毕" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$debug.coverage" NAME="debug 覆盖结果" MODIFIED="1664881350483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$debug.coverage" NAME="debug 覆盖结果" MODIFIED="1665132186398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

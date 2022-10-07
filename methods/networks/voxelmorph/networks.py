@@ -1,18 +1,12 @@
 import numpy as np
 import torch
 import torch.nn as nn
-<<<<<<< HEAD
 import torch.nn.functional as F
 from torch.distributions.normal import Normal
 
 from methods.networks.voxelmorph.utils import default_unet_features
 from methods.networks.voxelmorph import layers
 from methods.networks.voxelmorph.modelio import LoadableModel, store_config_args
-=======
-from torch.distributions.normal import Normal
-
-from methods.networks.voxelmorph import layers
->>>>>>> origin/main
 
 
 class Unet(nn.Module):
@@ -20,17 +14,12 @@ class Unet(nn.Module):
     A unet architecture. Layer features can be specified directly as a list of encoder and decoder
     features or as a single integer along with a number of unet levels. The default network features
     per layer (when no options are specified) are:
-<<<<<<< HEAD
+    unet架构。层特性可以直接指定为编码器和解码器特性的列表，也可以指定为单个整数和一些unet级别。每层的默认网络特性(当没有指定选项时)是:
 
         encoder: [16, 32, 32, 32]
         decoder: [32, 32, 32, 32, 32, 16, 16]
     """
 
-=======
-        encoder: [16, 32, 32, 32]
-        decoder: [32, 32, 32, 32, 32, 16, 16]
-    """
->>>>>>> origin/main
     def __init__(self,
                  inshape=None,
                  infeats=None,
@@ -44,42 +33,46 @@ class Unet(nn.Module):
         Parameters:
             inshape: Input shape. e.g. (192, 192, 192)
             infeats: Number of input features.
+                输入特性的数量
             nb_features: Unet convolutional features. Can be specified via a list of lists with
                 the form [[encoder feats], [decoder feats]], or as a single integer. 
                 If None (default), the unet features are defined by the default config described in 
                 the class documentation.
+                Unet卷积特性。可以通过形式为[[encoder feat]， [decoder feat]]的列表来指定，也可以作为单个整数。
+                如果为None (default)，则unet特性由类文档中描述的默认配置定义。
             nb_levels: Number of levels in unet. Only used when nb_features is an integer. 
                 Default is None.
+                unet中的层数。仅在nb_features为整数时使用。默认是没有的。
             feat_mult: Per-level feature multiplier. Only used when nb_features is an integer. 
                 Default is 1.
+                特征倍数。仅在nb_features为整数时使用。默认值为1。
             nb_conv_per_level: Number of convolutions per unet level. Default is 1.
+                每个unet级别的卷积数。默认值为1
             half_res: Skip the last decoder upsampling. Default is False.
+                跳过最后一个解码器上采样。默认是假值。
         """
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/main
         super().__init__()
 
-        # ensure correct dimensionality
+        # ensure correct dimensionality 跳过最后一个解码器上采样。默认是假的。
         ndims = len(inshape)
         assert ndims in [1, 2, 3], 'ndims should be one of 1, 2, or 3. found: %d' % ndims
 
         # cache some parameters
         self.half_res = half_res
 
-<<<<<<< HEAD
         # default encoder and decoder layer features if nothing provided
         if nb_features is None:
             nb_features = default_unet_features()
+            '''
+            [16, 32, 32, 32],             
+            [32, 32, 32, 32, 32, 16, 16]
+            '''
 
-=======
->>>>>>> origin/main
         # build feature list automatically
         if isinstance(nb_features, int):
             if nb_levels is None:
-                raise ValueError('must provide unet nb_levels if nb_features is an integer')
-            feats = np.round(nb_features * feat_mult ** np.arange(nb_levels)).astype(int)
+                raise ValueError('must provide unet nb_levels if nb_features is an integer整数')
+            feats = np.round(nb_features * feat_mult ** np.arange(nb_levels)).astype(int)  # 四舍五入
             nb_features = [
                 np.repeat(feats[:-1], nb_conv_per_level),
                 np.repeat(np.flip(feats), nb_conv_per_level)
@@ -87,7 +80,7 @@ class Unet(nn.Module):
         elif nb_levels is not None:
             raise ValueError('cannot use nb_levels if nb_features is not an integer')
 
-        # extract any surplus (full resolution) decoder convolutions
+        # extract any surplus (full resolution) decoder convolutions 提取所有剩余的(全分辨率)解码器卷积
         enc_nf, dec_nf = nb_features
         nb_dec_convs = len(enc_nf)
         final_convs = dec_nf[nb_dec_convs:]
@@ -162,19 +155,12 @@ class Unet(nn.Module):
         return x
 
 
-<<<<<<< HEAD
 class VxmDense(LoadableModel):
     """
     VoxelMorph network for (unsupervised) nonlinear registration between two images.
     """
 
     @store_config_args
-=======
-class VxmDense(nn.Module):
-    """
-    VoxelMorph network for (unsupervised) nonlinear registration between two images.
-    """
->>>>>>> origin/main
     def __init__(self,
                  inshape,
                  nb_unet_features=None,
@@ -211,11 +197,7 @@ class VxmDense(nn.Module):
             unet_half_res: Skip the last unet decoder upsampling. Requires that int_downsize=2. 
                 Default is False.
         """
-<<<<<<< HEAD
         super().__init__()
-=======
-        super(VxmDense, self).__init__()
->>>>>>> origin/main
 
         # internal flag indicating whether to return flow or integrated warp during inference
         self.training = True

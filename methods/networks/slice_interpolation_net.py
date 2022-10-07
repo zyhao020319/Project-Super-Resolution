@@ -26,8 +26,8 @@ class SliceInterpolationNet(nn.Module):
     
     def slice_interplolation(self, prev_slice: torch.Tensor, next_slice: torch.Tensor, t: float):
         assert 0 < t < 1
-        _, forward_dvf = self.forward(moving_image=prev_slice, fixed_image=next_slice)
-        _, backward_dvf = self.forward(moving_image=next_slice, fixed_image=prev_slice)
+        _, forward_dvf = self.forward(moving_image=prev_slice, fixed_image=next_slice)  # 前向特征矩阵
+        _, backward_dvf = self.forward(moving_image=next_slice, fixed_image=prev_slice)  # 后向特征矩阵
         dvf_0_to_t = forward_dvf * t
         dvf_1_to_t = backward_dvf * (1 - t)
         return self.stn(prev_slice, dvf_0_to_t) + self.stn(next_slice, dvf_1_to_t)

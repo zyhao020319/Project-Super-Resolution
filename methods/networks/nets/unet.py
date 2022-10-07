@@ -132,16 +132,16 @@ class UNet(nn.Module):
         self.outc = OutConv(ngf, out_channels)
 
     def forward(self, x):
-        x = self.inc(x)
+        x = self.inc(x)  # 输入层双卷积
 
         downs = [x]
         for down in self.downs:
             x = down(x)
-            downs.append(x)
+            downs.append(x)  # 下采样
 
         for down_out, up in zip(reversed(downs[:-1]), self.ups):
-            x = up(x, down_out)
+            x = up(x, down_out)  # 上采样
 
-        logits = self.outc(x)
+        logits = self.outc(x)  # 输出
 
         return logits
