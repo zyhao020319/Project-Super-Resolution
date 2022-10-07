@@ -11,10 +11,11 @@ from monai.networks.layers.factories import Norm
 import pytorch_lightning as pl
 import pytorch_lightning.loggers as pl_loggers
 
-from materials import LitISSRLoader, STAGE, MODALITY
+from materials import LitISSRLoader
 from methods.networks.nets import UNet2d5, resnet50, resnet18
 from methods.networks import ISSRGenerator, ISSRDiscriminator
 from methods import LitISSRGAN
+from experiments.dataset_configs.brats2018slice_configs import STAGE, MODALITY
 
 
 def test_UNet2d5():

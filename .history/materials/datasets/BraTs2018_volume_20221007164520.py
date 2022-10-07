@@ -1,29 +1,23 @@
 import os
-import enum
 
-import numpy as np
 import torch
+import numpy as np
+from torch.utils.data import Dataset
 import torchio as tio
 
-from experiments.dataset_configs.brats2018slice_configs import MODALITY, STAGE
+from experiments.dataset_configs.brats2018slice_configs import STAGE
 
 
-# class MODALITY(enum.Enum):
-#     T1 = "t1"
-#     T1CE = "t1ce"
-#     T2 = "t2"
-#     FLAIR = "flair"
-#
-#
 # class STAGE(enum.Enum):
 #     TRAIN = "train"
 #     VAL = "val"
 #     TEST = "test"
 
 
-class BraTs2018DatasetSlice(tio.SubjectsDataset):
+class BraTs2018Volume(Dataset):
     def __init__(self, sr_scale: int, stage: STAGE):
-        self.data_dir = "../datasets/BraTs2018"  # 改为本项目的上级目录下的datasets文件夹
+        super().__init__()
+        self.data_dir = "../datasets/BraTs2018"
 
         self.stage = stage
         self.case_names = self.get_cases()
@@ -40,24 +34,17 @@ class BraTs2018DatasetSlice(tio.SubjectsDataset):
 
         subjects = self.get_subjects()
         # 根据传递的self.case_names在指定路径下实例化数据集
-        super().__init__(subjects)
+        self.subjects = tio.SubjectsDataset(subjects)
 
         self.image_shape = (240, 240, 155)  # 实例化3D图像大小
         self.sr_scale = sr_scale  # 超分倍数
         self.num_used_slice_pairs = self.image_shape[-1] // sr_scale  # 实例化用于切片的层数
         self.start_slice = (self.image_shape[-1] - sr_scale * self.num_used_slice_pairs - 1) // 2  # 实例化起始层
 
-    def __getitem__(self, idx: int):
-        # 迭代器返回对应subject的切片以及下一切片
-        index, forward_or_backward = divmod(idx, 2)
-        subject_idx, slice_idx = divmod(index, self.num_used_slice_pairs)
-        subject = super().__getitem__(index=subject_idx)
+    def __getitem__(self, index: int):
+        # 迭代器返回对应低分辨率图像和高分辨率图像
+        subject = self.subjects[index]
 
-        slice_pair = self.get_slice_pair(subject, slice_idx, forward_or_backward)
-        return slice_pair
-
-    def get_slice_pair(self, subject: tio.Subject, slice_idx: int, forward_or_backward: int):
-        # 前项或后项返回对应subject的切片以及下一切片
         t1 = subject["t1"].data
         t1ce = subject["t1ce"].data
         t2 = subject["t2"].data
@@ -66,15 +53,13 @@ class BraTs2018DatasetSlice(tio.SubjectsDataset):
         image = torch.cat([t1, t1ce, t2, flair])
         image = image.float() / 32767 * 2 - 1
 
-        slice_0 = image[..., self.start_slice + self.sr_scale * slice_idx]
-        slice_1 = image[..., self.start_slice + self.sr_scale * (slice_idx + 1)]
-        if forward_or_backward == 0:
-            return slice_0, slice_1
-        else:
-            return slice_1, slice_0
+        slice_idxs = list(range(self.start_slice, self.image_shape[-1], self.sr_scale))
+        lr_image = image[..., slice_idxs]
+        hr_image = image[..., self.start_slice:slice_idxs[-1]]
+        return lr_image, hr_image
 
     def __len__(self):
-        return self.num_used_slice_pairs * super().__len__() * 2
+        return len(self.subjects)
 
     def get_subjects(self):
         # 读取所选阶段的多模态MR图像到内存中

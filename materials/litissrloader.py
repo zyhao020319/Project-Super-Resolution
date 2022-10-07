@@ -1,7 +1,8 @@
 from torch.utils.data import DataLoader
 import pytorch_lightning as pl
 
-from materials.datasets.BraTs2018_volume import BraTs2018Volume, STAGE, MODALITY
+from materials.datasets.BraTs2018_volume import BraTs2018Volume
+from experiments.dataset_configs.brats2018slice_configs import STAGE, MODALITY
 
 
 str2modality = {

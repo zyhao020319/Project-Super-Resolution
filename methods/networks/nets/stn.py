@@ -4,6 +4,9 @@ import torch.nn.functional as F
 
 
 class SpatialTransformationNetwork(nn.Module):
+    '''
+    实现将unet学习出的特征矩阵作用于原图坐标系下
+    '''
     def __init__(self, size):
         super(SpatialTransformationNetwork, self).__init__()
         vectors = [torch.arange(0, s) for s in size]
@@ -19,13 +22,22 @@ class SpatialTransformationNetwork(nn.Module):
         '''
 
     def forward(self, src, flow):
-        new_locs = self.grid + flow
-        shape = flow.shape[2:]
+        new_locs = self.grid + flow  # flow为Unet学习出的特征图片
+        shape = flow.shape[2:]  # 读取图片大小
 
         for i in range(len(shape)):
-            new_locs[:, i, ...] = 2 * (new_locs[:, i, ...] / (shape[i] - 1) - 0.5)
-        new_locs = new_locs.permute(0, 2, 3, 1)
+            new_locs[:, i, ...] = 2 * (new_locs[:, i, ...] / (shape[i] - 1) - 0.5)  # 对dim=1归一到[-1,1]区间
+        new_locs = new_locs.permute(0, 2, 3, 1)  # 重新排列dim=1
         new_locs = new_locs[..., [1, 0]]
 
         output = F.grid_sample(src, new_locs, mode="bilinear", align_corners=True)
+        '''
+        提供一个input的Tensor以及一个对应的flow-field网格(比如光流，体素流等)，
+        然后根据grid中每个位置提供的坐标信息(这里指input中pixel的坐标)，
+        将input中对应位置的像素值填充到grid指定的位置，得到最终的输出.
+        
+        对于mode='bilinear'参数，则定义了在input中指定位置的pixel value中进行双线性插值的方法
+        
+        默认padding_mode为zero填充
+        '''
         return output
