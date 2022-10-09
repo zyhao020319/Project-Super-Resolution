@@ -25,9 +25,10 @@ class Callbacks:
         self.log_learning_rate = pl_callbacks.LearningRateMonitor(
             logging_interval="step"
         )
-        
+
     def __call__(self):
         return [self.early_stopping, self.save_checkpoint, self.log_learning_rate]
+
 
 class ExperimentConfigs:
     def __init__(self, exp_name: str, save_dir="results/ours", test_output_save_dir=None):
@@ -41,15 +42,17 @@ class ExperimentConfigs:
             os.makedirs(self.test_output_path, exist_ok=True)
 
         self.trainer = EasyDict(
-            logger = tb_logger,
-            max_epochs = 1000,
-            gpus = 1,
-            num_nodes = 1,
-            strategy = None,
-            resume_from_checkpoint = None,
+            logger=tb_logger,
+            max_epochs=1000,
+            # gpus=1,
+            accelerator='gpu',
+            devices=1,
+            num_nodes=1,
+            strategy=None,
+            resume_from_checkpoint=None,
             # num_sanity_val_steps = 3,
             # fast_dev_run = 1,
             # overfit_batches = 1,
-            enable_progress_bar = False,
-            callbacks = Callbacks()()
+            enable_progress_bar=False,
+            callbacks=Callbacks()()
         )

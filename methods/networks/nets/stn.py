@@ -10,7 +10,7 @@ class SpatialTransformationNetwork(nn.Module):
     def __init__(self, size):
         super(SpatialTransformationNetwork, self).__init__()
         vectors = [torch.arange(0, s) for s in size]
-        grids = torch.meshgrid(vectors)  # 生成两个0-223坐标点矩阵
+        grids = torch.meshgrid(vectors, indexing='xy')  # 生成两个0-223坐标点矩阵
         grid = torch.stack(grids)  # 拼接这两个矩阵
         grid = torch.unsqueeze(grid, 0)  # 在dim=0维度升维变成四维
         grid = grid.type(torch.FloatTensor)

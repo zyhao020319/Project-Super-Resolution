@@ -9,6 +9,7 @@ def store_config_args(func):
     Class-method decorator that saves every argument provided to the
     function as a dictionary in 'self.config'. This is used to assist
     model loading - see LoadableModel.
+        类方法装饰器，它将提供给函数的每个参数保存为'self.config'中的字典。这用于辅助模型加载-参见LoadableModel。
     """
 
     attrs, varargs, varkw, defaults = inspect.getargspec(func)

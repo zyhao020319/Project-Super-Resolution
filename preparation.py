@@ -8,7 +8,7 @@ from materials.datasets.BraTs2018.preprocessing import Preprocessing, STAGE
 
 def create_grid(size, path):
     num1, num2 = (size[0] + 10) // 10, (size[1] + 10) // 10  # 改变除数（10），即可改变网格的密度
-    x, y = np.meshgrid(np.linspace(-2, 2, num1), np.linspace(-2, 2, num2))
+    x, y = np.meshgrid(np.linspace(-2, 2, num1), np.linspace(-2, 2, num2), indexing='xy')
 
     plt.figure(figsize=((size[0] + 10) / 100.0, (size[1] + 10) / 100.0))  # 指定图像大小
     plt.plot(x, y, color="black")

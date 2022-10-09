@@ -98,7 +98,7 @@ def test_data_loader():
     print(max_val)
 
 def test_init_lit_issr_gan():
-    config_file_path = "experiments/test_program.yaml"
+    config_file_path = 'experiments/test_program.yaml'
     with codecs.open(config_file_path, 'r', 'utf-8') as file:
         param_groups = yaml.load(file, Loader=yaml.FullLoader)
 
