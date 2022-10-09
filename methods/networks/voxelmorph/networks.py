@@ -54,18 +54,18 @@ class Unet(nn.Module):
         super().__init__()
 
         # ensure correct dimensionality 跳过最后一个解码器上采样。默认是假的。
-        ndims = len(inshape)
+        ndims = len(inshape)  # 1D或2D或3D
         assert ndims in [1, 2, 3], 'ndims should be one of 1, 2, or 3. found: %d' % ndims
 
         # cache some parameters
         self.half_res = half_res
 
-        # default encoder and decoder layer features if nothing provided
+        # default encoder and decoder layer features if nothing provided 定义编码器和解码器的通道数
         if nb_features is None:
             nb_features = default_unet_features()
             '''
-            [16, 32, 32, 32],             
-            [32, 32, 32, 32, 32, 16, 16]
+            [16, 32, 32, 32],  # enc
+            [32, 32, 32, 32, 32, 16, 16]  # dec
             '''
 
         # build feature list automatically
@@ -82,20 +82,20 @@ class Unet(nn.Module):
 
         # extract any surplus (full resolution) decoder convolutions 提取所有剩余的(全分辨率)解码器卷积
         enc_nf, dec_nf = nb_features
-        nb_dec_convs = len(enc_nf)
-        final_convs = dec_nf[nb_dec_convs:]
-        dec_nf = dec_nf[:nb_dec_convs]
+        nb_dec_convs = len(enc_nf)  # 编码器层数，同时也是对称的解码器层数
+        final_convs = dec_nf[nb_dec_convs:]  # 解码器中不与编码器对称的部分
+        dec_nf = dec_nf[:nb_dec_convs]  # 与编码器对称的解码器
         self.nb_levels = int(nb_dec_convs / nb_conv_per_level) + 1
 
         if isinstance(max_pool, int):
             max_pool = [max_pool] * self.nb_levels
 
-        # cache downsampling / upsampling operations
-        MaxPooling = getattr(nn, 'MaxPool%dd' % ndims)
+        # cache downsampling / upsampling operations 缓存下采样/上采样操作
+        MaxPooling = getattr(nn, 'MaxPool%dd' % ndims)  # 判别2d池化还是3d池化
         self.pooling = [MaxPooling(s) for s in max_pool]
-        self.upsampling = [nn.Upsample(scale_factor=s, mode='nearest') for s in max_pool]
+        self.upsampling = [nn.Upsample(scale_factor=s, mode='nearest') for s in max_pool]  # 实例化上采样，采用临近差值方法
 
-        # configure encoder (down-sampling path)
+        # configure encoder (down-sampling path) 配置编码器(下采样路径)
         prev_nf = infeats
         encoder_nfs = [prev_nf]
         self.encoder = nn.ModuleList()
@@ -108,7 +108,7 @@ class Unet(nn.Module):
             self.encoder.append(convs)
             encoder_nfs.append(prev_nf)
 
-        # configure decoder (up-sampling path)
+        # configure decoder (up-sampling path) 配置编码器(下采样路径)
         encoder_nfs = np.flip(encoder_nfs)
         self.decoder = nn.ModuleList()
         for level in range(self.nb_levels - 1):
@@ -158,6 +158,7 @@ class Unet(nn.Module):
 class VxmDense(LoadableModel):
     """
     VoxelMorph network for (unsupervised) nonlinear registration between two images.
+        VoxelMorph网络用于(无监督的)两幅图像之间的非线性配准
     """
 
     @store_config_args
