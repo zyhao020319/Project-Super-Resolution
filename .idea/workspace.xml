@@ -7,30 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8933ebd1-e868-4954-9bec-e537c2f72ee4" name="变更" comment="stn层注释完成，成功运行debug.py，手工导入pystrum包">
-      <change beforePath="$PROJECT_DIR$/.history/README_20221007160634.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.history/README_20221007170320.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.history/debug_20221007162714.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.history/debug_20221007170613.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.history/materials/datasets/BraTs2018_slice_20221004215008.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.history/materials/datasets/BraTs2018_slice_20221007164454.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.history/materials/datasets/BraTs2018_volume_20221004215008.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.history/materials/datasets/BraTs2018_volume_20221007164520.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+    <list default="true" id="8933ebd1-e868-4954-9bec-e537c2f72ee4" name="变更" comment="train文件已跑通，修正过时版本函数">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiments/experiment_configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/experiment_configs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/method_configs/voxelmorph.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/method_configs/voxelmorph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/materials/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiments/method_configs/issrnet_configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/method_configs/issrnet_configs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/methods/lit_issr_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/lit_issr_net.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/methods/lit_vm_fractalunet.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/lit_vm_fractalunet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/methods/lit_voxelmorph.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/lit_voxelmorph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/methods/networks/nets/stn.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/networks/nets/stn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/methods/networks/voxelmorph/layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/networks/voxelmorph/layers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/methods/networks/voxelmorph/modelio.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/networks/voxelmorph/modelio.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/methods/networks/voxelmorph/networks.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/networks/voxelmorph/networks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preparation.py" beforeDir="false" afterPath="$PROJECT_DIR$/preparation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/grid.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/grid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/methods/losses/voxelmorph_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/losses/voxelmorph_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/methods/networks/slice_interpolation_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/networks/slice_interpolation_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/methods/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,19 +30,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <excluded-from-favorite>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </excluded-from-favorite>
     <favorite-branches>
       <branch-storage>
         <map>
@@ -94,29 +65,29 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "last_opened_file_path": "E:/Desktop/Project_Superresolution/Inter-slice-Super-resolution-master/debug.py",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "PyScientificConfigurable",
-    "two.files.diff.last.used.file": "E:/Desktop/Project_Superresolution/Project-Super-Resolution/materials/lit_BraTs2018_datamodule.py"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Desktop/Project_Superresolution/Inter-slice-Super-resolution-master/debug.py&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;PyScientificConfigurable&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;E:/Desktop/Project_Superresolution/Project-Super-Resolution/materials/lit_BraTs2018_datamodule.py&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Python.train">
+}</component>
+  <component name="RunManager" selected="Python.voxelmorph_loss">
     <configuration name="debug" type="PythonConfigurationType" factoryName="Python">
       <module name="Inter-slice-Super-resolution-056d965c468d62d68d8e71c0aabbd803751a5b5d" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -183,6 +154,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="voxelmorph_loss" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Inter-slice-Super-resolution-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/methods/losses" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/methods/losses/voxelmorph_loss.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.voxelmorph_loss" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -202,7 +200,12 @@
       <workItem from="1665193283136" duration="11286000" />
       <workItem from="1665242316583" duration="607000" />
       <workItem from="1665298345417" duration="2358000" />
-      <workItem from="1665301486236" duration="3034000" />
+      <workItem from="1665301486236" duration="4989000" />
+      <workItem from="1665382371959" duration="702000" />
+      <workItem from="1665383125738" duration="11041000" />
+      <workItem from="1665397767892" duration="7000" />
+      <workItem from="1665469890796" duration="7580000" />
+      <workItem from="1665488799422" duration="7694000" />
     </task>
     <task id="LOCAL-00001" summary="源代码更新，数据集部分修改完毕">
       <created>1664890330935</created>
@@ -225,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665151491716</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="train文件已跑通，修正过时版本函数">
+      <created>1665306001881</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665306001881</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +263,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -268,7 +278,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="源代码更新，数据集部分修改完毕" />
     <MESSAGE value="stn层注释完成，成功运行debug.py，手工导入pystrum包" />
-    <option name="LAST_COMMIT_MESSAGE" value="stn层注释完成，成功运行debug.py，手工导入pystrum包" />
+    <MESSAGE value="train文件已跑通，修正过时版本函数" />
+    <option name="LAST_COMMIT_MESSAGE" value="train文件已跑通，修正过时版本函数" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -283,7 +294,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$debug.coverage" NAME="debug 覆盖结果" MODIFIED="1665132186398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$train.coverage" NAME="train 覆盖结果" MODIFIED="1665305479716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$train.coverage" NAME="train 覆盖结果" MODIFIED="1665476777456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$voxelmorph_loss.coverage" NAME="voxelmorph_loss 覆盖结果" MODIFIED="1665496948853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/methods/losses" />
     <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$main.coverage" NAME="main 覆盖结果" MODIFIED="1665300461386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

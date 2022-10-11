@@ -10,7 +10,7 @@ def initialize_class(class_name: object, class_params: dict):
     for arg in class_args:
         if arg in inkeys:
             args1[arg] = class_params[arg]
-    return class_name(**args1)   
+    return class_name(**args1)
 
 
 def normalize(pred_slice: torch.Tensor, target_slice: torch.Tensor):
