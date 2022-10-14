@@ -7,20 +7,29 @@ import torch.nn.functional as F
 
 
 class LocalCrossCorrelationWithSmoothnessLoss(nn.Module):
-    def __init__(self, shape, length, alpha, penalty):
+    """
+    定义损失函数，分为相似度损失和平滑度损失两项，
+    相似度损失为互相关函数，其互相关范围为周围n^2个元素，
+    平滑度损失为相邻像素的差分（空间梯度）
+    """
+    def __init__(self, shape,   # 输入矩阵形状，不计batch_size维度
+                 length,  # 用于计算smoothness loss，平滑滤波器的核大小
+                 alpha,  # smoothness loss权重大小
+                 penalty  # 用于计算smoothness loss，使用l1 penalty还是l2 penalty
+                 ):
         super(LocalCrossCorrelationWithSmoothnessLoss, self).__init__()
-        ndims = len(shape) - 1
+        ndims = len(shape) - 1  # 输入维度
         if not ndims in [1, 2, 3]:
             raise AssertionError("volumes should be 1 to 3 dimensions. found: {}".format(ndims))
-        win = [length] * ndims
-        sum_filt = torch.ones([1, shape[0], *win])
-        pad_no = math.floor(win[0] / 2)
+        win = [length] * ndims  # 形成[length,length]向量
+        sum_filt = torch.ones([1, shape[0], *win])  # 形成win维的全1矩阵，此外还有两个维度参数
+        pad_no = math.floor(win[0] / 2)  # 取半四舍五入，得到padding
         
         self.register_buffer("sum_filt", sum_filt)
-        self.stride = [1] * ndims
-        self.padding = [pad_no] * ndims
-        self.win_size = np.prod(win)
-        self.epsilon = 1e-9
+        self.stride = [1] * ndims  # 步长
+        self.padding = [pad_no] * ndims  # 填充
+        self.win_size = np.prod(win)  # 返回乘积
+        self.epsilon = 1e-9  # 防止归零
         
         print(self.sum_filt)
         print(self.stride)
@@ -30,7 +39,10 @@ class LocalCrossCorrelationWithSmoothnessLoss(nn.Module):
         self.alpha = alpha
         self.penalty = penalty
         
-    def forward(self, I: torch.Tensor, J: torch.Tensor, s: torch.Tensor):
+    def forward(self, I: torch.Tensor,  # 预测图层
+                J: torch.Tensor,  # 实际图层
+                s: torch.Tensor  # 形变场
+                ):
         I_var, J_var, cross = self.compute_local_sums(I, J)
         cc = cross * cross / (I_var * J_var + self.epsilon)
         
@@ -39,8 +51,9 @@ class LocalCrossCorrelationWithSmoothnessLoss(nn.Module):
         total_loss = ncc_loss + smoothness_loss
         
         return total_loss, ncc_loss, smoothness_loss
-           
+
     def compute_local_sums(self, I: torch.Tensor, J: torch.Tensor):
+        # 计算相似损失
         filt = self.sum_filt
         stride = self.stride
         padding = self.padding
@@ -60,6 +73,7 @@ class LocalCrossCorrelationWithSmoothnessLoss(nn.Module):
         return I_var, J_var, cross
     
     def gradient_loss(self, s):
+        # 计算平滑损失
         dy = torch.abs(s[:, :, 1:, :] - s[:, :, :-1, :])
         dx = torch.abs(s[:, :, :, 1:] - s[:, :, :, :-1])
 

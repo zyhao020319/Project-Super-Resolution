@@ -31,9 +31,13 @@ class Callbacks:
 
 
 class ExperimentConfigs:
-    def __init__(self, exp_name: str, save_dir="results/ours", test_output_save_dir=None):
-        os.makedirs(os.path.join(save_dir, exp_name), exist_ok=True)
-        tb_logger = pl_loggers.TensorBoardLogger(save_dir, exp_name)
+    def __init__(self,
+                 exp_name: str,
+                 save_dir="results/ours",
+                 test_output_save_dir=None
+                 ):
+        os.makedirs(os.path.join(save_dir, exp_name), exist_ok=True)  # 创建目录
+        tb_logger = pl_loggers.TensorBoardLogger(save_dir, exp_name)  # 以TensorBoard格式日志到本地文件系统
 
         if test_output_save_dir is None:
             pass
