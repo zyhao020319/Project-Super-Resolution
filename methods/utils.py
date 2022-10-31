@@ -14,12 +14,15 @@ def initialize_class(class_name: object, class_params: dict):
 
 
 def normalize(pred_slice: torch.Tensor, target_slice: torch.Tensor):
+    """
+    将图像在0-255上标准化
+    """
     max_, min_ = torch.max(target_slice), torch.min(target_slice)
     
     image = target_slice.type(torch.float32)
     target_slice = ((image - min_) / (max_- min_) * 255).type(torch.uint8) 
     
-    pred_slice = pred_slice.clamp(min_, max_)
+    pred_slice = pred_slice.clamp(min_, max_)  # 将图像限制在max_到min_范围中
     image = pred_slice.type(torch.float32)
     pred_slice = ((image - min_) / (max_- min_) * 255).type(torch.uint8)       
     
