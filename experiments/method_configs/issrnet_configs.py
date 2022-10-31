@@ -50,6 +50,6 @@ class ISSRNetConfigs:
         self.loss = EasyDict(
             shape=(1, 240, 240),  # 用于计算ncc loss，要计算的两个图像的维度，batch size那个维度不要
             length=9,  # 用于计算smoothness loss，平滑滤波器的核大小
-            alpha=0.00,  # 用于计算最终loss，平衡ncc loss核smoothness loss，乘在smoothness loss前面
+            alpha=0.01,  # 用于计算最终loss，平衡ncc loss核smoothness loss，乘在smoothness loss前面
             penalty="l2"  # 用于计算smoothness loss，使用l1 penalty还是l2 penalty
         )

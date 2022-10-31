@@ -7,15 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8933ebd1-e868-4954-9bec-e537c2f72ee4" name="变更" comment="train文件已跑通，修正过时版本函数">
+    <list default="true" id="8933ebd1-e868-4954-9bec-e537c2f72ee4" name="变更" comment="train文件无法跑通，读完数据集加载器与形变场中的loss">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/experiment_configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/experiment_configs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiments/dataset_configs/brats2018slice_configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/dataset_configs/brats2018slice_configs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/experiments/method_configs/issrnet_configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/method_configs/issrnet_configs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/methods/lit_issr_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/lit_issr_net.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/methods/losses/voxelmorph_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/losses/voxelmorph_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/methods/networks/slice_interpolation_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/networks/slice_interpolation_net.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/methods/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/methods/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +51,8 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
+    <option name="showPreview" value="true" />
   </component>
   <component name="ProjectId" id="2FexvOiyjqz5FkZTIi7bMTvyr0p" />
   <component name="ProjectLevelVcsManager">
@@ -83,11 +81,16 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;PyScientificConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;two.files.diff.last.used.file&quot;: &quot;E:/Desktop/Project_Superresolution/Project-Super-Resolution/materials/lit_BraTs2018_datamodule.py&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
 }</component>
-  <component name="RunManager" selected="Python.voxelmorph_loss">
+  <component name="RunManager" selected="Python.train">
     <configuration name="debug" type="PythonConfigurationType" factoryName="Python">
       <module name="Inter-slice-Super-resolution-056d965c468d62d68d8e71c0aabbd803751a5b5d" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -205,7 +208,17 @@
       <workItem from="1665383125738" duration="11041000" />
       <workItem from="1665397767892" duration="7000" />
       <workItem from="1665469890796" duration="7580000" />
-      <workItem from="1665488799422" duration="7694000" />
+      <workItem from="1665488799422" duration="7805000" />
+      <workItem from="1665733454738" duration="5805000" />
+      <workItem from="1665796917799" duration="16571000" />
+      <workItem from="1665901893121" duration="75000" />
+      <workItem from="1665994782635" duration="677000" />
+      <workItem from="1666272299237" duration="32000" />
+      <workItem from="1666599616335" duration="8000" />
+      <workItem from="1667050832143" duration="7000" />
+      <workItem from="1667120886021" duration="693000" />
+      <workItem from="1667196322792" duration="1069000" />
+      <workItem from="1667197766613" duration="1878000" />
     </task>
     <task id="LOCAL-00001" summary="源代码更新，数据集部分修改完毕">
       <created>1664890330935</created>
@@ -235,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665306001881</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="train文件无法跑通，读完数据集加载器与形变场中的loss">
+      <created>1665497709157</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665497709157</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +283,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
@@ -279,7 +299,8 @@
     <MESSAGE value="源代码更新，数据集部分修改完毕" />
     <MESSAGE value="stn层注释完成，成功运行debug.py，手工导入pystrum包" />
     <MESSAGE value="train文件已跑通，修正过时版本函数" />
-    <option name="LAST_COMMIT_MESSAGE" value="train文件已跑通，修正过时版本函数" />
+    <MESSAGE value="train文件无法跑通，读完数据集加载器与形变场中的loss" />
+    <option name="LAST_COMMIT_MESSAGE" value="train文件无法跑通，读完数据集加载器与形变场中的loss" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -294,8 +315,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$debug.coverage" NAME="debug 覆盖结果" MODIFIED="1665132186398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$train.coverage" NAME="train 覆盖结果" MODIFIED="1665476777456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$voxelmorph_loss.coverage" NAME="voxelmorph_loss 覆盖结果" MODIFIED="1665496948853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/methods/losses" />
+    <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$voxelmorph_loss.coverage" NAME="voxelmorph_loss 覆盖结果" MODIFIED="1665734282355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/methods/losses" />
+    <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$train.coverage" NAME="train 覆盖结果" MODIFIED="1667198106157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Inter_slice_Super_resolution_master$main.coverage" NAME="main 覆盖结果" MODIFIED="1665300461386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
